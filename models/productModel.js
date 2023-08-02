@@ -7,18 +7,18 @@ const productShema = mongoose.Schema(
             required: [true, "Please inter product name: "]
 
         },
-        quantity: {
+        kwh: {
             type: Number,
             required: true,
             default: 0
         },
-        price: {
+        voltage: {
             type: Number,
             required: true,
         },
-        image: {
-            type: String,
-            required: false,
+        current: {
+            type: Number,
+            required: true,
         }
     },
     {
@@ -27,6 +27,6 @@ const productShema = mongoose.Schema(
 )
 
 
-const Product = mongoose.model('Product',productShema);
+const Device = mongoose.model('Device',productShema);
 
-module.exports = Product;
+module.exports = Device;

@@ -22,7 +22,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
 //routes
-app.use('/api/products', productRoute);
+app.use('/api/devices', productRoute);
 
 app.get('/',(req, res) => {
     res.send('Hello Node API')

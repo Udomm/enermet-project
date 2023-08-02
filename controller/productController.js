@@ -1,11 +1,11 @@
-const Product = require('../models/productModel')
+const Device = require('../models/productModel')
 const asyncHandler = require('express-async-handler')
 
 
-const getProducts = asyncHandler(async(req, res) =>{
+const getDevices = asyncHandler(async(req, res) =>{
     try{
-        const products = await Product.find({});
-        res.status(200).json(products);
+        const devices = await Device.find({});
+        res.status(200).json(devices);
 
     } catch(error){
         res.status(500);
@@ -13,52 +13,52 @@ const getProducts = asyncHandler(async(req, res) =>{
         //res.status(500).json({message: errror.message})
     }
 })
-const getProduct = asyncHandler(async(req, res) =>{
+const getDevice = asyncHandler(async(req, res) =>{
     try{
         const {id} = req.params;
-        const product = await Product.findById(id);
-        res.status(200).json(product);
+        const device = await Device.findById(id);
+        res.status(200).json(device);
 
     } catch(error){
         res.status(500);
         throw new Error(error.message);
     }
 })
-const createProduct = asyncHandler(async(req, res)=>{
+const createDevice = asyncHandler(async(req, res)=>{
     try{
-        const product = await Product.create(req.body);
-        res.status(200).json(product);
+        const device = await Device.create(req.body);
+        res.status(200).json(device);
 
     }catch(error){
         res.status(500);
         throw new Error(error.message);
     }
 })
-const updateProduct = asyncHandler(async(req, res)=>{
+const updateDevice = asyncHandler(async(req, res)=>{
     try{
         const {id} = req.params;
-        const product = await Product.findByIdAndUpdate(id, req.body);
-        if(!product){
+        const device = await Product.findByIdAndUpdate(id, req.body);
+        if(!device){
             res.status(404);
             throw new Error(`cannot find any product ID ${id}`);
         }
-        const uupdateProduct = await Product.findById(id);
-        res.status(200).json(updateProduct);
+        const updateDevice = await Device.findById(id);
+        res.status(200).json(updateDevice);
     } catch(error) {
         res.status(500);
         throw new Error(error.message);
     }
 })
-const deleteProduct = asyncHandler(async(req, res)=>{
+const deleteDevice = asyncHandler(async(req, res)=>{
     try{
         const {id} = req.params;
-        const product = await Product.findByIdAndDelete(id);
+        const device = await Device.findByIdAndDelete(id);
         if(!product){
             res.status(404);
             throw new Error(`cannot find any product ID ${id}`);
             
         }
-        res.status(200).json(Product);
+        res.status(200).json(Device);
     } catch(error) {
         res.status(500);
         throw new Error(error.message);
@@ -66,9 +66,9 @@ const deleteProduct = asyncHandler(async(req, res)=>{
 })
 
 module.exports = {
-    getProducts,
-    getProduct,
-    createProduct,
-    updateProduct,
-    deleteProduct
+    getDevice,
+    getDevices,
+    createDevice,
+    updateDevice,
+    deleteDevice
 }
