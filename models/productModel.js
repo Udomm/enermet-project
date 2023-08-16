@@ -8,7 +8,7 @@ const productShema = mongoose.Schema(
 
         },
         kwh: {
-            type: String,
+            type: Number,
             required: true,
             default: 0
         },
