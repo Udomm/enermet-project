@@ -19,8 +19,12 @@ const productShema = mongoose.Schema(
         current: {
             type: Number,
             required: true,
+        },
+        status: {
+            type: String,
+            required: true,
+            default: 0
         }
-        
     },
     {
         timestamps: true
