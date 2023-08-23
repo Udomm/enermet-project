@@ -12,6 +12,10 @@ const productShema = mongoose.Schema(
             required: true,
             default: 0
         },
+        power: {
+            type: Number,
+            required: true,
+        },
         voltage: {
             type: Number,
             required: true,
